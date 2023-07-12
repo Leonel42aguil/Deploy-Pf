@@ -84,7 +84,7 @@ const CreateProductForm = () => {
           try {
             console.log('aaaa');
             axios
-              .post("http://localhost:3001/productCreate", formData)
+              .post("/productCreate", formData)
               .then(() => {
                 Swal.fire("Éxito", "Producto creado con éxito", "success").then(
                   () => {

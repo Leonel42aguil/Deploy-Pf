@@ -9,7 +9,7 @@ const ListaFavorito = () => {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/fav');
+        const response = await axios.get('/fav');
         setFavorites(response.data);
       } catch (error) {
         console.error('Error al obtener la lista de favoritos:', error);
@@ -31,7 +31,7 @@ const ListaFavorito = () => {
 
     if (answer.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:3001/fav/${id}`);
+        await axios.delete(`/fav/${id}`);
         setFavorites((prevFavorites) =>
           prevFavorites.filter((favorite) => favorite.id !== id)
         );
@@ -103,7 +103,7 @@ const toggleSelectAll = () => {
 
       try {
         await Promise.all(
-          selectedIds.map((id) => axios.delete(`http://localhost:3001/fav/${id}`))
+          selectedIds.map((id) => axios.delete(`/fav/${id}`))
         );
         setFavorites((prevFavorites) =>
           prevFavorites.filter((favorite) => !selectedIds.includes(favorite.id))

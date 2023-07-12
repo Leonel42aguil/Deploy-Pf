@@ -16,7 +16,7 @@ export default function BubbleWsp() {
     <div className="fixed right-0 bottom-0 h-20">
       <div className="flex items-center">
         <a
-          href="https://wa.me/542615591495?text=¿Buscas algo en particular? Estoy aquí para responder a tus preguntas y brindarte asistencia personalizada de parte de Perisferia!"
+          href="https://wa.me/542615591495"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center bg-gray-800 text-white rounded-lg p-3 space-x-3 hover:bg-gray-100"

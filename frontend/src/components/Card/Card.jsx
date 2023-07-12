@@ -50,7 +50,7 @@ const Card = (props) => {
 
   const addToFavorites = async (props) => {
     try {
-      const response = await axios.post("http://localhost:3001/fav", props);
+      const response = await axios.post("/fav", props);
       setIsFav(true);
     } catch (error) {
       console.error("Error al agregar el producto a favoritos:", error);
@@ -59,7 +59,7 @@ const Card = (props) => {
 
   const removeFromFavorites = async (props) => {
     try {
-      const response = await axios.delete(`http://localhost:3001/fav/${props.id}`);
+      const response = await axios.delete(`/fav/${props.id}`);
       setIsFav(false);
     } catch (error) {
       console.error("Error al eliminar el producto de favoritos:", error);
@@ -68,7 +68,7 @@ const Card = (props) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/fav")
+      .get("/fav")
       .then((response) => {
         const favorites = response.data;
         const isFavorite = favorites.some((favorite) => favorite.id === props.id);

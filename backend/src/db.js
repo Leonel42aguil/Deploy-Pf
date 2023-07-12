@@ -4,12 +4,21 @@ const fs = require('fs');
 const path = require('path');
 const {
   // DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, PGPASSWORD
-  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, 
+  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_DEPLOY
 } = process.env;
  
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:/${DB_NAME}`, {
+// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:/${DB_NAME}`, {
+//   logging: false, // set to console.log to see the raw SQL queries
+//   dialect: 'postgres',
+// });
+const sequelize = new Sequelize(DB_DEPLOY, {
   logging: false, // set to console.log to see the raw SQL queries
   dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true
+    }
+  }
 });
 // const sequelize = new Sequelize(PGPASSWORD, {
 //   logging: false, // set to console.log to see the raw SQL queries

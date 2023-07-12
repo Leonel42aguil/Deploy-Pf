@@ -24,8 +24,9 @@ import MyForm from "./TestForm";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import ReviewForm from "./components/ReviewForm/ReviewForm";
 import { useAuth0 } from "@auth0/auth0-react";
-import axios from "axios";
 import ListaFavorito from "./components/ListaFavorito/ListaFavorito";
+import axios from "axios";
+axios.defaults.baseURL = 'http://localhost:3001/'
 
 function App() {
   const { user } = useAuth0();
